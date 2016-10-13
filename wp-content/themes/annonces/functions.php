@@ -119,7 +119,8 @@ add_action( 'wp_enqueue_scripts', 'ajout_scripts' );
 
 
 
-
+add_image_size("thumbnail_annonce",450,300,false);
+add_image_size("thumbnail_annonce_full",1450,800,false);
 
 
 
