@@ -5,6 +5,7 @@
   <?php
   
   $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+  echo $paged;
   $args=array(
     'post_type' => 'annonce',
     'posts_per_page' => 3,
@@ -33,10 +34,10 @@
          
           <h2><?php the_title(); ?></h2>
           <span class="prix">Prix : <?php the_field('prix'); ?>€</span>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Voir l'annonce </a>
         </article>
     <?php      
     }
-  
     /* Restore original Post Data */
     wp_reset_postdata();
     } else {
@@ -44,7 +45,10 @@
     }
 ?>
   
-  
+
 </section>
+<div class="pagination">
+ <?php wp_pagenavi( array( 'query' => $the_query ) ); ?>
+</div>
 <?php get_footer(); ?>
 
