@@ -1,5 +1,10 @@
 <?php get_header(); //appel du template header.php  ?>
 
+
+<?php
+  get_template_part('views/slider');
+?>
+
 <section class="container" id="listeAnnonces">
 
   <?php
