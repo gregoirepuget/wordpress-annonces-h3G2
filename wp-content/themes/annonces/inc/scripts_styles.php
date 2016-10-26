@@ -42,6 +42,15 @@ wp_register_style( 'slick_theme_style', get_template_directory_uri() . '/styles/
 // appel du style dans la page
 wp_enqueue_style( 'slick_theme_style' );
   
+
+  // enregistrement d'un nouveau style
+wp_register_style( 'google-font', 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow' );
+
+// appel du style dans la page
+wp_enqueue_style( 'google-font' );
+  
+  
+  
 // enregistrement d'un nouveau style
 wp_register_style( 'main_style', get_template_directory_uri() . '/styles/main.css' );
 

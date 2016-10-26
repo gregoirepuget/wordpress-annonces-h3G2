@@ -1,19 +1,31 @@
-<?php get_header(); //appel du template header.php  ?>
+<?php
+/*
+Template Name: Page accueil annonce
+*/
+
+get_header(); //appel du template header.php  ?>
 
 
 <?php
-  get_template_part('views/slider');
+ // get_template_part('views/slider');
 ?>
 
 <section class="container" id="listeAnnonces">
 
+  <h1 class="col-md-12"><?php the_title(); ?></h1>
+  
+  
+  <div class="annonces">
   <?php
   
-  $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-  echo $paged;
+  if( is_front_page() ){
+      $paged = (get_query_var('page')) ? get_query_var('page') : 1; 
+  } else {
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+  }
   $args=array(
     'post_type' => 'annonce',
-    'posts_per_page' => 3,
+    'posts_per_page' => 6,
     'paged' => $paged
     );
 
@@ -38,6 +50,8 @@
           ?>
          
           <h2><?php the_title(); ?></h2>
+          <h3><?php the_terms( get_the_ID(), 'categorie-annonce', 'Catégories: ', ' / ' ); ?></h3>
+          <?php the_excerpt(); ?>
           <span class="prix">Prix : <?php the_field('prix'); ?>€</span>
           <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Voir l'annonce </a>
         </article>
@@ -49,7 +63,7 @@
     // no posts found
     }
 ?>
-  
+  </div>
 
 </section>
 <div class="pagination">
