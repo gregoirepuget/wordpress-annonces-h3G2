@@ -14,6 +14,9 @@ get_header(); //appel du template header.php  ?>
 
   <h1 class="col-md-12"><?php the_title(); ?></h1>
   
+  <div class="list-category-annonces">
+    
+  </div>
   
   <div class="annonces">
   <?php
