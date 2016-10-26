@@ -75,6 +75,28 @@ h3 a{
   margin-bottom:30px;
 }
 
+.list-category-annonces ul{
+  margin-left:0;
+  padding-left:0;
+  margin-bottom:20px;
+}
+.list-category-annonces li{
+  list-style: none;
+  display:inline-block;
+  margin-left:0;
+  padding-left:0;
+  
+}
+.list-category-annonces li a{
+  padding:6px 12px;
+  margin-right:20px;
+  font-size:14px;
+  background:#16a085;
+  color:#FFFFFF;
+  border-radius:2px;
+  
+  
+}
 /***************
 
     PAGENAVI
