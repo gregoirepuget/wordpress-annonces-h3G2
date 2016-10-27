@@ -75,6 +75,8 @@ h3 a{
   margin-bottom:30px;
 }
 
+
+
 .list-category-annonces ul{
   margin-left:0;
   padding-left:0;
@@ -94,26 +96,10 @@ h3 a{
   background:#16a085;
   color:#FFFFFF;
   border-radius:2px;
-}
-.list-category-annonces li a.current{
-  color:#16a085;
-  background:#FFFFFF;
+  
+  
 }
 
-.buttonMore{
-  clear:both;
-  display:block;
-  width:150px;
-  margin-top:30px;
-  text-align:center;
-  margin-left:auto;
-  margin-right:auto;
-  padding:6px 12px;
-  font-size:14px;
-  background:#16a085;
-  color:#FFFFFF;
-  border-radius:2px;
-}
 /***************
 
     PAGENAVI
@@ -140,27 +126,6 @@ h3 a{
   background:#FFFFFF;
   color:#16a085;
 }
-
-#searchAjax {
-  position:relative;
-}
-
-#searchResult{
-  position:absolute;
-  z-index:10;
-  background:#ECECEC;
-  margin:0px;
-  display:none;
-}
-
-
-
-#searchResult li{
-  list-style:none;
-  padding:10px 5px;
-  width:300px;
-}
-
 
 
 

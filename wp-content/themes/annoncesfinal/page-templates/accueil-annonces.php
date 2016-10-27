@@ -14,27 +14,17 @@ get_header(); //appel du template header.php  ?>
 
   <h1 class="col-md-12"><?php the_title(); ?></h1>
   
-  <div class="col-md-12">
-  <?php
-      get_template_part('views/ajax-search');
-  ?>
-  </div>
- 
- 
   <div class="list-category-annonces col-md-12">
-     <?php
-      $terms = get_terms( 'categorie-annonce', 'hide_empty=0' );
-        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-            echo '<ul>';
-            foreach ( $terms as $term )
-            {
-                echo '<li><a href="#" title="' . $term->name . '" data-id="' . $term->term_id . '">
-                ' . $term->name . '</a>
-                </li>';
-            }
-            echo '</ul>';
-        }
-      ?>
+    <?php
+    $terms = get_terms( 'categorie-annonce', 'orderby=count&hide_empty=0' );
+    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+    echo '<ul>';
+    foreach ( $terms as $term ) {
+        echo '<li><a href="#" title="' . $term->name . '" data-id="' . $term->term_id . '">' . $term->name . '</a></li>';
+    }
+    echo '</ul>';
+    }
+    ?>
   </div>
   
   <div class="annonces">
@@ -89,7 +79,7 @@ get_header(); //appel du template header.php  ?>
 
 </section>
 <div class="pagination">
- <?php // wp_pagenavi( array( 'query' => $the_query ) ); ?>
+ <?php wp_pagenavi( array( 'query' => $the_query ) ); ?>
 </div>
 <?php get_footer(); ?>
 

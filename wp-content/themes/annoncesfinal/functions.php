@@ -15,8 +15,9 @@ include_once('inc/scripts_styles.php');
 // THEME SUPPORT
 include_once('inc/theme_support.php');
 
-// AJAX FUNCTIONS
+// THEME SUPPORT
 include_once('inc/ajax.php');
+
 
 
 

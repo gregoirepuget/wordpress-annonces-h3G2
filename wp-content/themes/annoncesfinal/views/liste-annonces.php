@@ -1,14 +1,16 @@
-<?php get_header(); //appel du template header.php  ?>
+<?php
 
-<section class="container" id="listeAnnonces">
-
-  <?php
-  
-  $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
   $args=array(
     'post_type' => 'annonce',
-    'posts_per_page' => 3,
-    'paged' => $paged
+    'posts_per_page' => 6,
+    'paged' => $paged,
+    'tax_query' => array(
+		array(
+			'taxonomy' => 'categorie-annonce',
+			'field'    => 'term_id',
+			'terms'    => $term_id,
+		),
+	),
     );
 
   // The Query
@@ -32,22 +34,16 @@
           ?>
          
           <h2><?php the_title(); ?></h2>
+          <h3><?php the_terms( get_the_ID(), 'categorie-annonce', 'Catégories: ', ' / ' ); ?></h3>
+          <?php the_excerpt(); ?>
           <span class="prix">Prix : <?php the_field('prix'); ?>€</span>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Voir l'annonce </a>
         </article>
     <?php      
     }
-  
     /* Restore original Post Data */
     wp_reset_postdata();
     } else {
     // no posts found
     }
 ?>
-  
-
-</section>
-<div class="pagination">
- <?php wp_pagenavi( array( 'query' => $the_query ) ); ?>
-</div>
-<?php get_footer(); ?>
-
