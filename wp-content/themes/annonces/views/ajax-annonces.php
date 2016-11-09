@@ -52,27 +52,3 @@ $args=array(
     echo '<a href="#" class="button buttonMore" data-id="'.$term_id.'" data-paged="'.($paged+1).'">Voir +</a>';
   }
 ?>
-<script>
-/*jQuery(document).ready(function($){
-$(".buttonMore").on("click",function(e){
-    e.preventDefault();
-    var data_id=$(this).attr("data-id");
-    var paged=$(this).attr("data-paged");
-    var content= $(".annonces");
-    $(this).remove();
-    content.append("Recherche en cours");
-    jQuery.post(
-        '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-        {
-            'action'  : 'filtre-category',
-            'term_id' : data_id,
-            'paged'   : paged
-        },
-        function(response)
-        {
-          content.append(response);
-        }
-    );
-});
-});*/
-</script>

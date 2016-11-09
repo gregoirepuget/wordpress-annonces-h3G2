@@ -141,28 +141,44 @@ h3 a{
   color:#16a085;
 }
 
+
+
+/******************
+
+    SEARCH
+
+*******************/
+
+
+.searchSection{
+  padding:30px 0px;
+}
+
 #searchAjax {
   position:relative;
+  text-align:left;
+  width:300px;
+  margin:0 auto;
 }
 
 #searchResult{
   position:absolute;
   z-index:10;
   background:#ECECEC;
-  margin:0px;
   display:none;
+  
 }
-
-
-
+#searchAjaxInput{
+  padding:7px 5px;
+  width:250px;
+  font-size:18px;
+  
+}
 #searchResult li{
   list-style:none;
-  padding:10px 5px;
+  padding:10px 0px;
   width:300px;
 }
-
-
-
 
 /***************
 

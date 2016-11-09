@@ -1,5 +1,7 @@
 jQuery(document).ready(function($){
   
+  var rechercheEnCours=false;
+  
   $('section#slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -26,15 +28,12 @@ jQuery(document).ready(function($){
         function(response)
         {
           content.html(response);
-          initButtonMore();
         }
     );
     
   });
-  initButtonMore();
-  function initButtonMore()
-  {
-        $(".buttonMore").on("click",function(e){
+
+        $("body").on("click",".buttonMore", function(e){
           e.preventDefault();
           var data_id=$(this).attr("data-id");
           var paged=$(this).attr("data-paged");
@@ -52,31 +51,46 @@ jQuery(document).ready(function($){
               {
                 $('.ajaxtext').remove();
                 content.append(response);
-                initButtonMore();
               }
           );
 
         });
-    }
   
   $("#searchAjaxInput").on("keyup",function(e){
-    var search_input= $("#searchAjaxInput").val();
-    console.log(search_input);
-    jQuery.post(
-        ajaxurl,
-        {
-          'action' : 'ajax-autocompletion',
-          'search_input' : search_input
-        },
-        function(response)
-        {
-         console.log("AJAX retour OK"); 
-        }
-    );
+    if(rechercheEnCours==false)
+    {
+        rechercheEnCours=true;
+        var search_input= $("#searchAjaxInput").val();
+        var content_result= $('#searchResult');
+        console.log(search_input);
+        jQuery.post(
+            ajaxurl,
+            {
+              'action' : 'autocompletion',
+              'search_input' : search_input
+            },
+            function(response)
+            {
+             content_result.show();
+             content_result.html(response);
+             rechercheEnCours=false;
+            }
+        );
+    }
   });
   
+  $("#searchAjaxInput").on("blur",function(e){
+  setTimeout(
+   function(){
+    $('#searchResult').hide();
+     },
+    1000
+  );
+});
   
 });
+
+
 
 
 

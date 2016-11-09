@@ -1,4 +1,5 @@
-<div>
+<div class="searchSection">
+ 
   <form action="#" id="searchAjax">
     <input type="search" name="search" id="searchAjaxInput" placeholder="Rechercher une annonce"/>
     <div id="searchResult">
